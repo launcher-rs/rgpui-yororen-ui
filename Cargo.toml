@@ -1,28 +1,24 @@
-[package]
-name = "rgpui-yororen-ui"
-version = "0.1.0"
-edition = "2024"
-publish = true
-description = "Yororen UI 组件库"
-license = "Apache-2.0"
-repository = "https://github.com/launcher-rs/rgpui-yororen-ui.git"
+[workspace]
+resolver = "3"
+members = [
+    "crates/rgpui-yororen-ui",
+    "examples/counter",
+    "examples/file_browser",
+    "examples/todolist",
+    "examples/toast_notification",
+]
 
-[dependencies]
-rgpui = "0.1"
+[workspace.dependencies]
+rgpui = ">=0.1, <1.0"
+rgpui-platform = ">=0.1, <1.0"
+rgpui-yororen-ui = {path = "crates/rgpui-yororen-ui",version = "0.1.1"}
 
-rust-embed = "8.9.0"
-smallvec = "1.15"
-stacksafe = "1"
-unicode-segmentation = "1"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-chrono = { version = "0.4", features = ["serde"] }
-uuid = { version = "1", features = ["v4"] }
 
-[lints.rust]
+
+[workspace.lints.rust]
 unexpected_cfgs = { level = "allow" }
 
-[lints.clippy]
+[workspace.lints.clippy]
 dbg_macro = "deny"
 todo = "deny"
 
